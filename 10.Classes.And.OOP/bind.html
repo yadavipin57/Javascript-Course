@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bind | React</title>
+</head>
+<body style="background-color: #212121;">
+    <button style="cursor: pointer;">Button Clicked</button>
+</body>
+<script>
+    class React{
+        constructor(){
+            this.library = "React"
+            this.server = "https://localhost:5500"
+
+            //Requiremnet
+
+            document.querySelector('button').addEventListener('click', this.handleClick.bind(this))
+
+        }
+
+        handleClick(){
+            console.log(`Button Clicked`);
+            console.log(this);
+            console.log(this.server); // Reference of the button is given but value of servers is not logged, so instead of using call() we should use bind() in line 19
+        }
+    }
+
+    const app = new React()
+</script>
+</html>

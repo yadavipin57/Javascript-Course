@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100vw;
+    background-color: #fff;
+}
+
+button{
+    margin: 96px 50%;
+    transform: translateX(-50%);
+    padding: 12px 24px;
+    font-size: 24px;
+    font-weight: bold;
+    background-color: #e22d2d;
+    color: #fff;
+    width: 480px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    border-radius: 12px;
+    transition: ease 0.3s;
+}
+
+button:hover{
+    background-color: #ee1d1d;
+}

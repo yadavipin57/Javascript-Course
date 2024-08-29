@@ -1,0 +1,11 @@
+Javascript is a Synchronous language
+
+        Blocking       vs       Non Blocking Code
+           |                           |
+Block the flow of program    Doesn't block execution
+           |                           |
+    Read file Sync               Read file Async
+
+
+
+

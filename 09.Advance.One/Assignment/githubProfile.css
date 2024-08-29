@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;   
+    font-family: 'Roboto Mono', monospace;
+}
+
+.main-container{
+    width: 100vw;
+    height: 100vh;
+}
+
+.github-form{
+    margin: 60px auto;
+    max-width: 600px;
+    width: 100%;
+}
+
+h1{
+    font-weight: 700;
+    text-align: center;
+}
+
+form{
+    margin: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#search-bar{
+    padding: 15px 20px;
+    outline: none;
+    border: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
+    font-size: 20px;
+    font-weight: 700;
+    border-radius: 4px;
+}
+
+button{
+    margin: auto;
+    padding: 10px 14px;
+    width: fit-content;
+    border: 0;
+    background-color: #cdcdcd;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.github-info{
+    padding: 10px 15px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
+    width: 100%;
+    position: relative;
+}
+.instruction{
+    padding: 8px 4px;
+    font-size: 16px;
+    text-align: center;
+}
+h3{
+    display: block;
+}
+.github-info h3 span{
+    color: #1E789B;
+    font-size: 14px;
+}
+.profile-img{
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    width: 144px;
+    height: 144px;
+    object-fit: cover;
+    border-radius: 50%;
+}

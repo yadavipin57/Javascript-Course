@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121; color: white;"> 
+    <h1>Chai aur javascript</h1>
+    <button id="start" style="cursor: pointer;">Start</button>
+    <button id="stop" style="cursor: pointer;">Stop</button>
+</body>
+<script>
+    
+    // const sayDate1 = function(){
+    //     console.log("VIPIN", Date.now());
+    // }
+    // setInterval(sayDate1, 2000)
+
+    let intervalId;
+    const start = document.querySelector('#start')
+
+    start.addEventListener('click', function(e){
+        const sayDate2 = function(str){
+            console.log(str, Date.now());
+        }
+        const intervalId = setInterval(sayDate2, 1000, "VIPIN")
+    })
+    
+    const stopped = document.querySelector('#stop')
+    
+    stopped.addEventListener('click', function(e){
+        clearInterval(intervalId)
+        console.log("STOPPED");
+    }) // Stop is not working
+
+</script>
+</html>

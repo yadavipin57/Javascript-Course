@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Events</title>
+    <script src="eventbasics.js"></script>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h1>Chai aur code</h1>
+
+    <div >
+        <ul id="images">
+            <li style="width: fit-content;"><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li style="width: fit-content;"><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li style="width: fit-content;"><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li style="width: fit-content;"><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li style="width: fit-content;"><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li> 
+            <!-- onclick="alert('Owl')" this approach is not scalable on bigger websites -->
+        </ul>
+   </div>
+
+</body>
+
+<script>
+
+    // document.getElementById('owl').onclick = function(){
+    //     alert("Owl clicked")
+    // } --> This gives less features so better approach can be used
+
+    //attachEvent()
+    //jQuery - on
+    
+    // addEventListener approach
+    // document.getElementById('owl').addEventListener('click', function(){
+    //     alert("Owl clicked again")
+    // }, false) // third parameter is default "false", so not writting it also works the same
+
+    document.getElementById('river').addEventListener('click', function(e){
+        console.log(e);
+    }, false)
+    // events to study
+        //type, timestamp, defaultPrevented, target, toElement, srcElement, currentTarget, clientX, clientY, screenX, screenY, altkey, ctrlkey, shiftkey,
+
+    //Bubblling
+    document.getElementById('images').addEventListener('click', function(e){
+        console.log("Clicked inside the ul");
+    }, false)
+    document.getElementById('owl').addEventListener('click', function(e){
+        console.log("Owl clicked");
+        e.stopPropagation()
+    }, false) // Bubblling -> From inside to outside
+    //Capturing
+    document.getElementById('images').addEventListener('click', function(e){
+        console.log("Clicked inside the ul");
+    }, true)
+    document.getElementById('owl').addEventListener('click', function(e){
+        console.log("Owl clicked");
+    }, true) // Capturing
+
+    document.getElementById('google').addEventListener('click', function(e){
+        e.preventDefault()
+        e.stopPropagation()
+        console.log(`Google clicked`);
+    }, false)
+
+    //------------------------------
+
+    document.querySelector('#images').addEventListener('click', function(e){
+        console.log(e);
+        console.log(e.target);
+        console.log(e.target.parentNode);
+        if(e.target.tagName === 'IMG'){
+            let removeIt = e.target.parentNode
+            removeIt.remove() // if clicked on list item then the whole ul will be removed
+            // removeIt.parentNode.removeChild(removeIt)
+        }
+    }, false)
+
+</script>
+
+</htm

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure</title>
+</head>
+
+<body style="background-color: #313131;">
+    <button id="orange" style="cursor: pointer;">Orange</button>
+    <button id="green" style="cursor: pointer;">Green</button>
+</body>
+<script>
+
+    // LECSICAL SCOPE
+
+    function init() {
+        let name = "Mozilla";
+        function displayName() {
+            console.log(name);
+        }
+        displayName();
+    }
+    init();
+
+    function outer() {
+        let username = 'Vipin'
+        // console.log(secret); // Parent cant access childs property or values
+        function inner() {
+            let secret = 'my123'
+            console.log("Inner ", username);
+        }
+        function innerTwo() {
+            console.log("InnerTwo ", username);
+            // console.log(secret); // Cant access siblings property or values
+        }
+        inner()
+        innerTwo()
+
+    }
+    outer()
+    // console.log("Too Outer ", username);
+
+    // CLOSURE
+
+    console.log('--------------------');
+
+    function makeFunc() {
+        const name = "Mozilla";
+        function displayName() {
+            console.log(name);
+        }
+        return displayName;
+    }
+
+    const myFunc = makeFunc();
+    myFunc();
+
+
+</script>
+
+<script>
+    // Use case scenario for CLOSURE
+
+    // document.getElementById('orange').onclick = function () {
+    //     document.body.style.backgroundColor = 'orange'
+    // }
+    // document.getElementById('green').onclick = function () {
+    //     document.body.style.backgroundColor = 'green'
+    // }
+
+    function clickHandler(color){
+
+        return function(){
+            document.body.style.backgroundColor = `${color}`
+        }
+    }
+
+    document.getElementById('orange').onclick = clickHandler('orange')
+    document.getElementById('green').onclick = clickHandler('green')
+</script>
+
+</html>
